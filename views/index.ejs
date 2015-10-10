@@ -1,56 +1,57 @@
 <!DOCTYPE html>
 <html>
-    <head lang="zh_CN">
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <title><%= title %></title>
-        <link rel="stylesheet" href="/css/material.min.css">
-        <link rel="stylesheet" href="/css/style.css">
-        <script src="/js/material.min.js"></script>
-        <script src="/js/main.js"></script>
-    </head>
-    <body>
-        <nav>
-            <i class="menu-btn material-icons">menu</i>
-            <span>账本</span>
-            <i class="search-btn material-icons">search</i>
-        </nav>
-        <div class="mask"></div>
-        <aside>
-            <div class="head"></div>
-        </aside>
-        <section>
-            <ul>
-            <% items.forEach(function (i) {
-                %>
-                <li>
-                    <p><i class="material-icons">list</i><strong>item</strong><%= i.item %></p>
-                    <p><i class="material-icons">attach_money</i><strong>cost</strong><%= i.cost %></p>
-                    <p><i class="material-icons">access_time</i><strong>date</strong><%= i.date.getFullYear() + '.' + (i.date.getMonth() + 1) + '.' + i.date.getDate() %></p></li>
-            <% }); %>
-            </ul>
-        </section>
-        <div class="index-add mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
-            <i class="material-icons">add</i>
-            <form action="" class="add-form form-hide">
-                <div class="mdl-textfield mdl-js-textfield form-sec">
-                    <input class="mdl-textfield__input" type="text" />
-                    <label class="mdl-textfield__label" for="sample1">Item...</label>
-                </div>
-                <div class="mdl-textfield mdl-js-textfield form-sec">
-                    <input class="mdl-textfield__input" type="text" />
-                    <label class="mdl-textfield__label" for="sample1">Cost...</label>
-                </div>
-                <div class="mdl-textfield mdl-js-textfield form-sec">
-                    <input class="mdl-textfield__input" type="text" />
-                    <label class="mdl-textfield__label" for="sample1">Time...</label>
-                </div>
-                <div class="form-sec">
-                    <div class="mdl-button mdl-js-button add-cancel">Cancel</div>
-                    <div class="mdl-button mdl-js-button mdl-button--accent add-save">Save</div>
-                </div>
-            </form>
-            <div class="add-show-e"></div>
+  <head lang="zh_CN">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/material.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/material.min.js"></script>
+    <!-- <script src="/js/main.js"></script> -->
+  </head>
+  <body>
+    <nav>
+      <i class="menu-btn material-icons">menu</i>
+      <span>账本</span>
+      <i class="search-btn material-icons">search</i>
+    </nav>
+    <div class="mask"></div>
+    <aside>
+      <div class="head"></div>
+    </aside>
+    <section>
+      <ul>
+      <% items.forEach(function (i) { %>
+        <li>
+          <p><i class="material-icons">list</i><strong>item</strong><%= i.item %></p>
+          <p><i class="material-icons">attach_money</i><strong>cost</strong><%= i.cost %></p>
+          <p><i class="material-icons">access_time</i><strong>date</strong><%= i.date.getFullYear() + '.' + (i.date.getMonth() + 1) + '.' + i.date.getDate() %></p>
+        </li>
+      <% }); %>
+      </ul>
+    </section>
+    <div class="index-add mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
+      <i class="material-icons">add</i>
+      <form action="" class="add-form form-hide">
+        <div class="mdl-textfield mdl-js-textfield form-sec">
+          <input class="mdl-textfield__input" type="text" />
+          <label class="mdl-textfield__label" for="sample1">Item...</label>
         </div>
-    </body>
+        <div class="mdl-textfield mdl-js-textfield form-sec">
+          <input class="mdl-textfield__input" type="text" />
+          <label class="mdl-textfield__label" for="sample1">Cost...</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield form-sec">
+          <input class="mdl-textfield__input" type="text" />
+          <label class="mdl-textfield__label" for="sample1">Time...</label>
+        </div>
+        <div class="form-sec">
+          <div class="mdl-button mdl-js-button add-cancel">Cancel</div>
+          <div class="mdl-button mdl-js-button mdl-button--accent add-save">Save</div>
+        </div>
+      </form>
+      <div class="add-show-e"></div>
+    </div>
+    <script data-main="/js/main" src="/js/require.js"></script>
+  </body>
 </html>
