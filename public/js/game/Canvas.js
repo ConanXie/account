@@ -19,8 +19,6 @@ define(function () {
     this.height = height*2;
   };
   Canvas.prototype.drawStart = function () {
-<<<<<<< HEAD
-
     /*
     point 下方等边三角形的中心
     h 小三角形的高
@@ -31,12 +29,6 @@ define(function () {
         width = this.width,
         height = this.height,
         point = 300,
-=======
-    var cxt = this.cxt,
-        width = this.width,
-        height = this.height,
-        center = 300,
->>>>>>> origin/master
         h = 70,
         sT = Math.sqrt(3);
 
@@ -52,41 +44,23 @@ define(function () {
 
     cxt.beginPath();
     cxt.fillStyle = '#e91e63';
-<<<<<<< HEAD
     cxt.moveTo(width/2, height-point);
     cxt.lineTo(width/2+h*sT, height-point-h);
     cxt.lineTo(width/2-h*sT, height-point-h);
-=======
-    cxt.moveTo(width/2, height-center);
-    cxt.lineTo(width/2+h*sT, height-center-h);
-    cxt.lineTo(width/2-h*sT, height-center-h);
->>>>>>> origin/master
     cxt.closePath();
     cxt.fill();
     cxt.beginPath();
     cxt.fillStyle = '#9c27b0';
-<<<<<<< HEAD
     cxt.moveTo(width/2, height-point);
     cxt.lineTo(width/2, height-point+h*sT);
     cxt.lineTo(width/2-h*sT, height-point-h);
-=======
-    cxt.moveTo(width/2, height-center);
-    cxt.lineTo(width/2, height-center+h*sT);
-    cxt.lineTo(width/2-h*sT, height-center-h);
->>>>>>> origin/master
     cxt.closePath();
     cxt.fill();
     cxt.beginPath();
     cxt.fillStyle = '#009688';
-<<<<<<< HEAD
     cxt.moveTo(width/2, height-point);
     cxt.lineTo(width/2, height-point+h*sT);
     cxt.lineTo(width/2+h*sT, height-point-h);
-=======
-    cxt.moveTo(width/2, height-center);
-    cxt.lineTo(width/2, height-center+h*sT);
-    cxt.lineTo(width/2+h*sT, height-center-h);
->>>>>>> origin/master
     cxt.closePath();
     cxt.fill();
   };
