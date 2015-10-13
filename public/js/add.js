@@ -38,21 +38,23 @@ define(['tool'], function (T) {
     },
     addShowEvent: function () {
       this.addShow.addEventListener('click', (e) => {
-        e.stopPropagation();
-        T.addClass(this.addBox, 'index-box-show');
-        T.removeClass(this.addBox, 'index-box-hide');
-        T.css(e.target, {display: 'none'});
-        setTimeout(() => {
-          T.removeClass(this.addForm, 'form-hide');
-          T.addClass(this.addFormInput[0], 'secshow0');
-          T.addClass(this.addFormInput[1], 'secshow1');
-          T.addClass(this.addFormInput[2], 'secshow2');
-          T.addClass(this.addFormInput[3], 'secshow3');
-          T.addClass(this.addFormInput[4], 'secshow4');
-          T.addClass(this.addFormInput[5], 'secshow5');
-          T.addClass(this.addFormInput[6], 'secshow6');
-        }, 500);
+        this.formShow();
       }, true);
+    },
+    formShow: function () {
+      T.addClass(this.addBox, 'index-box-show');
+      T.removeClass(this.addBox, 'index-box-hide');
+      T.css(this.addShow, {display: 'none'});
+      setTimeout(() => {
+        T.removeClass(this.addForm, 'form-hide');
+        T.addClass(this.addFormInput[0], 'secshow0');
+        T.addClass(this.addFormInput[1], 'secshow1');
+        T.addClass(this.addFormInput[2], 'secshow2');
+        T.addClass(this.addFormInput[3], 'secshow3');
+        T.addClass(this.addFormInput[4], 'secshow4');
+        T.addClass(this.addFormInput[5], 'secshow5');
+        T.addClass(this.addFormInput[6], 'secshow6');
+      }, 500);
     },
     formBtnEvent: function () {
       var that = this;
