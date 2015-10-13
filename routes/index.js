@@ -3,7 +3,15 @@ var router = express.Router();
 var item = require('../data/item');
 
 router.get('/', function (req, res, next) {
-  item.find(function (err, docs) {
+  var date = new Date(),
+      year = date.getFullYear(),
+      month = date.getMonth() + 1,
+      day = date.getDate();
+  console.log(year, month, day);
+  item.find({
+    date: {'$gte': new Date(`year-month-day`)},
+    item: '打球'
+  }, function (err, docs) {
     res.render('index', {
       title: 'Account',
       items: docs

@@ -48,6 +48,9 @@ define(['tool'], function (T) {
           T.addClass(this.addFormInput[1], 'secshow1');
           T.addClass(this.addFormInput[2], 'secshow2');
           T.addClass(this.addFormInput[3], 'secshow3');
+          T.addClass(this.addFormInput[4], 'secshow4');
+          T.addClass(this.addFormInput[5], 'secshow5');
+          T.addClass(this.addFormInput[6], 'secshow6');
         }, 500);
       }, true);
     },
@@ -60,6 +63,7 @@ define(['tool'], function (T) {
         this.addBoxRestore();
       }, false);
     },
+    addItem: function () {},
     addBoxRestore: function () {
       T.addClass(this.addForm, 'form-hide');
       T.removeClass(this.addBox, 'index-box-show');
@@ -70,6 +74,9 @@ define(['tool'], function (T) {
         T.removeClass(this.addFormInput[1], 'secshow1');
         T.removeClass(this.addFormInput[2], 'secshow2');
         T.removeClass(this.addFormInput[3], 'secshow3');
+        T.removeClass(this.addFormInput[4], 'secshow4');
+        T.removeClass(this.addFormInput[5], 'secshow5');
+        T.removeClass(this.addFormInput[6], 'secshow6');
       }, 500);
     },
   };

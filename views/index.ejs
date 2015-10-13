@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="/css/material.min.css">
     <link rel="stylesheet" href="/css/style.css">
     <script src="/js/material.min.js"></script>
-    <!-- <script src="/js/main.js"></script> -->
   </head>
   <body>
     <nav>
@@ -19,13 +18,34 @@
     <aside>
       <div class="head"></div>
     </aside>
+    <section class="test">
+      <ul>
+        <li>
+          <p><i class="material-icons">list</i><strong>名称</strong>breakfast</p>
+          <p><i class="material-icons">attach_money</i><strong>花费</strong>5.5</p>
+          <p><i class="material-icons">access_time</i><strong>日期</strong>2015.9.17</p>
+          <button class="mdl-button mdl-js-button mdl-button--icon edit-btn">
+            <i class="material-icons">edit</i>
+          </button>
+          <button class="mdl-button mdl-js-button mdl-button--icon delete-btn">
+            <i class="material-icons">delete</i>
+          </button>
+        </li>
+      </ul>
+    </section>
     <section>
       <ul>
       <% items.forEach(function (i) { %>
         <li>
-          <p><i class="material-icons">list</i><strong>item</strong><%= i.item %></p>
-          <p><i class="material-icons">attach_money</i><strong>cost</strong><%= i.cost %></p>
-          <p><i class="material-icons">access_time</i><strong>date</strong><%= i.date.getFullYear() + '.' + (i.date.getMonth() + 1) + '.' + i.date.getDate() %></p>
+          <p><i class="material-icons">list</i><strong>名称</strong><%= i.item %></p>
+          <p><i class="material-icons">attach_money</i><strong>花费</strong><%= i.cost %></p>
+          <p><i class="material-icons">access_time</i><strong>日期</strong><%= i.date.getFullYear() + '.' + (i.date.getMonth() + 1) + '.' + i.date.getDate() %></p>
+          <button class="mdl-button mdl-js-button mdl-button--icon edit-btn">
+            <i class="material-icons">edit</i>
+          </button>
+          <button class="mdl-button mdl-js-button mdl-button--icon delete-btn">
+            <i class="material-icons">delete</i>
+          </button>
         </li>
       <% }); %>
       </ul>
@@ -33,21 +53,33 @@
     <div class="index-add mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
       <i class="material-icons">add</i>
       <form action="" class="add-form form-hide">
-        <div class="mdl-textfield mdl-js-textfield form-sec">
+        <div class="mdl-textfield mdl-js-textfield textfield-normal form-sec">
           <input class="mdl-textfield__input" type="text" />
-          <label class="mdl-textfield__label" for="sample1">Item...</label>
+          <label class="mdl-textfield__label">时间...</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield textfield-normal form-sec">
+          <input class="mdl-textfield__input" type="text" />
+          <label class="mdl-textfield__label">类别...</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield textfield-normal form-sec">
+          <input class="mdl-textfield__input" type="text" />
+          <label class="mdl-textfield__label">子类别...</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield textfield-normal form-sec">
+          <input class="mdl-textfield__input" type="text" />
+          <label class="mdl-textfield__label">花费...</label>
         </div>
         <div class="mdl-textfield mdl-js-textfield form-sec">
           <input class="mdl-textfield__input" type="text" />
-          <label class="mdl-textfield__label" for="sample1">Cost...</label>
+          <label class="mdl-textfield__label">名称...</label>
         </div>
         <div class="mdl-textfield mdl-js-textfield form-sec">
-          <input class="mdl-textfield__input" type="text" />
-          <label class="mdl-textfield__label" for="sample1">Time...</label>
+            <textarea class="mdl-textfield__input" type="text" rows= "3"></textarea>
+            <label class="mdl-textfield__label" for="sample5">备注...</label>
         </div>
         <div class="form-sec">
-          <div class="mdl-button mdl-js-button add-cancel">Cancel</div>
-          <div class="mdl-button mdl-js-button mdl-button--accent add-save">Save</div>
+          <div class="mdl-button mdl-js-button add-cancel">取消</div>
+          <div class="mdl-button mdl-js-button mdl-button--accent add-save">保存</div>
         </div>
       </form>
       <div class="add-show-e"></div>
