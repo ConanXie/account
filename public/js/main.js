@@ -1,9 +1,10 @@
 require.config({
   // baseUrl: '',
   paths: {
-    tool: 'lib/tool'
+    tool: 'lib/tool',
+    // add: 'add'
   }
 });
-require(['add'], function (add) {
-    add.init();
+require(['handle'], function () {
+    // add.init();
 });
