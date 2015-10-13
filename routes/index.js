@@ -9,8 +9,7 @@ router.get('/', function (req, res, next) {
       day = date.getDate();
   console.log(year, month, day);
   item.find({
-    date: {'$gte': new Date(`year-month-day`)},
-    item: '打球'
+    // date: {'$gte': new Date(`year-month-day`)}
   }, function (err, docs) {
     res.render('index', {
       title: 'Account',
