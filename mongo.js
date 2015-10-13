@@ -8,22 +8,22 @@ var itemSchema = mongoose.Schema({
 });
 var Item = mongoose.model('item', itemSchema);
 new Item({
-    item: 'breakfast',
+    item: '早餐',
     cost: 5.5,
     date: new Date()
 }).save();
 new Item({
-    item: 'lunch',
+    item: '中餐',
     cost: 12,
     date: new Date()
 }).save();
 new Item({
-    item: 'dinner',
+    item: '晚餐',
     cost: 13,
     date: new Date()
 }).save();
 new Item({
-    item: 'bus fare',
-    cost: 4,
+    item: '打球',
+    cost: 24,
     date: new Date()
 }).save();
