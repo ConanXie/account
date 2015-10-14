@@ -14,7 +14,8 @@
       <span>账本</span>
       <i class="search-btn material-icons">search</i>
     </nav>
-    <div class="mask"></div>
+    <div class="mask" id="mask1"></div>
+    <div class="mask" id="mask2"></div>
     <aside>
       <div class="head"></div>
     </aside>
@@ -36,12 +37,15 @@
     <section>
       <ul>
       <% items.forEach(function (i) { %>
-        <li>
-          <p><i class="material-icons">list</i><strong>名称</strong><%= i.item %></p>
-          <p><i class="material-icons">attach_money</i><strong>花费</strong><%= i.cost %></p>
-          <p><i class="material-icons">access_time</i><strong>日期</strong><%= i.date.getFullYear() + '.' + (i.date.getMonth() + 1) + '.' + i.date.getDate() %></p>
+        <li data-id="<%= i._id %>">
+          <p><i class="material-icons">schedule</i><strong>日期</strong><span class="text"><%= i.date.getFullYear() + '.' + (i.date.getMonth() + 1) + '.' + i.date.getDate() %></span></p>
+          <p><i class="material-icons">subject</i><strong>类别</strong><span class="text"><%= i.category %></span></p>
+          <p><i class="material-icons">format_list_bulleted</i><strong>子类</strong><span class="text"><%= i.subCategory %></span></p>
+          <p><i class="material-icons">attach_money</i><strong>花费</strong><span class="text"><%= i.cost %></span></p>
+          <p><i class="material-icons">today</i><strong>名称</strong><span class="text"><%= i.name %></span></p>
+          <p><i class="material-icons">mode_comment</i><strong>备注</strong><span class="text"><%= i.comments %></span></p>
           <button class="mdl-button mdl-js-button mdl-button--icon edit-btn">
-            <i class="material-icons">edit</i>
+            <i class="material-icons">mode_edit</i>
           </button>
           <button class="mdl-button mdl-js-button mdl-button--icon delete-btn">
             <i class="material-icons">delete</i>
@@ -53,28 +57,28 @@
     <div class="index-add mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
       <i class="material-icons">add</i>
       <form action="" class="add-form form-hide">
-        <div class="mdl-textfield mdl-js-textfield textfield-normal form-sec">
-          <input class="mdl-textfield__input" type="text" />
+        <div class="mdl-textfield mdl-js-textfield textfield-normal mdl-textfield--floating-label form-sec">
+          <input name="date" class="mdl-textfield__input" type="text" />
           <label class="mdl-textfield__label">时间...</label>
         </div>
-        <div class="mdl-textfield mdl-js-textfield textfield-normal form-sec">
-          <input class="mdl-textfield__input" type="text" />
+        <div class="mdl-textfield mdl-js-textfield textfield-normal  mdl-textfield--floating-label form-sec">
+          <input name="category" class="mdl-textfield__input" type="text" />
           <label class="mdl-textfield__label">类别...</label>
         </div>
-        <div class="mdl-textfield mdl-js-textfield textfield-normal form-sec">
-          <input class="mdl-textfield__input" type="text" />
+        <div class="mdl-textfield mdl-js-textfield textfield-normal  mdl-textfield--floating-label form-sec">
+          <input name="subCategory" class="mdl-textfield__input" type="text" />
           <label class="mdl-textfield__label">子类别...</label>
         </div>
-        <div class="mdl-textfield mdl-js-textfield textfield-normal form-sec">
-          <input class="mdl-textfield__input" type="text" />
+        <div class="mdl-textfield mdl-js-textfield textfield-normal  mdl-textfield--floating-label form-sec">
+          <input name="cost" class="mdl-textfield__input" type="text" />
           <label class="mdl-textfield__label">花费...</label>
         </div>
-        <div class="mdl-textfield mdl-js-textfield form-sec">
-          <input class="mdl-textfield__input" type="text" />
+        <div class="mdl-textfield mdl-js-textfield  mdl-textfield--floating-label form-sec">
+          <input name="name" class="mdl-textfield__input" type="text" />
           <label class="mdl-textfield__label">名称...</label>
         </div>
-        <div class="mdl-textfield mdl-js-textfield form-sec">
-            <textarea class="mdl-textfield__input" type="text" rows= "3"></textarea>
+        <div class="mdl-textfield mdl-js-textfield  mdl-textfield--floating-label form-sec">
+            <textarea name="comments" class="mdl-textfield__input" type="text" rows= "2"></textarea>
             <label class="mdl-textfield__label" for="sample5">备注...</label>
         </div>
         <div class="form-sec">
