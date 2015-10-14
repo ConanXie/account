@@ -7,7 +7,6 @@ router.get('/', function (req, res, next) {
       year = date.getFullYear(),
       month = date.getMonth() + 1,
       day = date.getDate();
-  console.log(year, month, day);
   item.find({
     // date: {'$gte': new Date(`year-month-day`)}
   }, function (err, docs) {
@@ -17,6 +16,24 @@ router.get('/', function (req, res, next) {
     });
   });
 });
+
+router.post('/handle', function (req, res, next) {
+  var data = req.body;
+  switch (data.operate) {
+    case 'alter':
+      console.log(data._id);
+      item.update({_id: data._id}, data, {upsert: true}, function (err) {
+        if (err) {
+          console.log(err);
+        }
+      });
+      item.find({_id: data._id}, function (err, docs) {
+        console.log(docs);
+      });
+      break;
+  }
+});
+
 router.get('/three-points', function (req, res, next) {
   res.render('three-points');
 });
