@@ -8,7 +8,9 @@ router.get('/', function (req, res, next) {
       month = date.getMonth() + 1,
       day = date.getDate();
   item.find({
-    // date: {'$gte': new Date(`year-month-day`)}
+    date: {
+      '$gte': new Date(`${year}-${month}-${day-1}`)
+    }
   }, function (err, docs) {
     res.render('index', {
       title: 'Account',
