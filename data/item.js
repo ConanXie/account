@@ -1,8 +1,11 @@
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/account');
 var itemSchema = mongoose.Schema({
-  item: String,
+  date: Date,
+  category: String,
+  subCategory: String,
   cost: Number,
-  date: Date
+  name: String,
+  comments: String
 });
 module.exports = mongoose.model('item', itemSchema);
