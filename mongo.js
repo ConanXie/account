@@ -2,28 +2,19 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/account');
 
 var itemSchema = mongoose.Schema({
-    item: String,
-    cost: Number,
-    date: Date
+  date: Date,
+  category: String,
+  subCategory: String,
+  name: String,
+  cost: Number,
+  comments: String
 });
 var Item = mongoose.model('item', itemSchema);
 new Item({
-    item: '早餐',
-    cost: 5.5,
-    date: new Date()
-}).save();
-new Item({
-    item: '中餐',
-    cost: 12,
-    date: new Date()
-}).save();
-new Item({
-    item: '晚餐',
-    cost: 13,
-    date: new Date()
-}).save();
-new Item({
-    item: '打球',
-    cost: 24,
-    date: new Date()
+  date: new Date('2015-10-11'),
+  category: '学习',
+  subCategory: '书籍',
+  cost: 33,
+  name: '钢笔画',
+  comments: '质量很差'
 }).save();
