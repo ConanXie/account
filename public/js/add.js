@@ -1,4 +1,6 @@
 define(['tool'], function (T) {
+  var icons = ['schedule', 'subject', 'format_list_bulleted', 'attach_money', 'today', 'mode_comment'];
+  var items = ['日期', '类别', '子类', '花费', '名称', '备注'];
   function Add() {};
   Add.prototype = {
     formFunc: 'add',
@@ -16,6 +18,7 @@ define(['tool'], function (T) {
       this.mask1 = document.querySelector('#mask1');
       this.mask2 = document.querySelector('#mask2');
       this.aside = document.querySelector('aside');
+      this.ul = document.querySelector('ul');
       this.addBox = document.querySelector('.index-add');
       this.addShow = document.querySelector('.add-show-e');
       this.addForm = document.querySelector('.add-form');
@@ -80,11 +83,67 @@ define(['tool'], function (T) {
         this.addBoxRestore();
       }, false);
     },
+    handleDB: function (data, operate) {
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function () {};
+      xhr.open('post', 'handle', true);
+      xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhr.send(`${data}operate=${operate}`);
+    },
+    getFormData: function () {
+      var form = this.addForm;
+      var data = '';
+      for (var i = 0; i < form.length; i++) {
+        data += `${[form[i].name]}=${form[i].value}&`;
+      }
+      return data;
+    },
     addItem: function () {
-      console.log(this.formFunc);
+      this.handleDB(this.getFormData(), 'add');
       var form = this.addForm;
       var li = document.createElement('li');
-      
+      for (var j = 0; j < form.length; j++) {
+        var p = document.createElement('p');
+        var i = document.createElement('i');
+        i.className = 'material-icons';
+        i.innerHTML = icons[j];
+        var strong = document.createElement('strong');
+        strong.innerHTML = items[j];
+        var span = document.createElement('span');
+        span.className = 'text';
+        if (!j && !form[j].value) {
+            var date = new Date();
+            var text = `${date.getFullYear()}.${date.getMonth() + 1}.${date.getDate()}`;
+        } else {
+          var text = form[j].value
+        }
+        span.innerHTML = text;
+        p.appendChild(i);
+        p.appendChild(strong);
+        p.appendChild(span);
+        li.appendChild(p);
+      }
+      var button1 = document.createElement('button');
+      button1.className = 'mdl-button mdl-js-button mdl-button--icon edit-btn';
+      button1.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.formShow();
+        this.formFunc = 'alter';
+        paddingData(e);
+      }, false);
+      var i1 = document.createElement('i');
+      i1.className = 'material-icons';
+      i1.innerHTML = 'mode_edit';
+      button1.appendChild(i1);
+      var button2 = document.createElement('button');
+      button2.className = 'mdl-button mdl-js-button mdl-button--icon delete-btn';
+      var i2 = document.createElement('i');
+      i2.className = 'material-icons';
+      i2.innerHTML = 'delete';
+      button2.appendChild(i2);
+      li.appendChild(button1);
+      li.appendChild(button2);
+      this.ul.appendChild(li);
     },
     clearForm: function () {
       var form = this.addForm;
