@@ -9,14 +9,14 @@ router.get('/', function (req, res, next) {
       day = date.getDate();
   item.find({
     date: {
-      '$gte': new Date(`${year}-${month}-${day-1}`)
+      '$gte': new Date(`${year}-${month}-${day-2}`)
     }
   }, function (err, docs) {
     res.render('index', {
       title: 'Account',
       items: docs
     });
-  });
+  }).sort({'_id':-1});
 });
 
 router.post('/handle', function (req, res, next) {
@@ -33,6 +33,8 @@ router.post('/handle', function (req, res, next) {
         console.log(docs);
       });
       break;
+    case 'add':
+      console.log(data, new Date());
   }
 });
 
