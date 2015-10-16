@@ -19,7 +19,7 @@
     <aside>
       <div class="head"></div>
     </aside>
-    <section class="test">
+    <!-- <section class="test">
       <ul>
         <li>
           <p><i class="material-icons">list</i><strong>名称</strong>breakfast</p>
@@ -33,12 +33,12 @@
           </button>
         </li>
       </ul>
-    </section>
+    </section> -->
     <section>
       <ul>
       <% items.forEach(function (i) { %>
         <li data-id="<%= i._id %>">
-          <p><i class="material-icons">schedule</i><strong>日期</strong><span class="text"><%= i.date.getFullYear() + '.' + (i.date.getMonth() + 1) + '.' + i.date.getDate() %></span></p>
+          <p><i class="material-icons">schedule</i><strong>日期</strong><span class="text"><%= `${i.date.getFullYear()}.${i.date.getMonth() + 1}.${i.date.getDate()}` %></span></p>
           <p><i class="material-icons">subject</i><strong>类别</strong><span class="text"><%= i.category %></span></p>
           <p><i class="material-icons">format_list_bulleted</i><strong>子类</strong><span class="text"><%= i.subCategory %></span></p>
           <p><i class="material-icons">attach_money</i><strong>花费</strong><span class="text"><%= i.cost %></span></p>
